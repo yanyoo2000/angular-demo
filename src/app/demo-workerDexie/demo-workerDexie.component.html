@@ -1,0 +1,30 @@
+<h1>
+  公司人员表
+</h1>
+
+<div *ngFor="let personInfo of personInfos$ | async;trackBy: identifyPerson">
+  {{personInfo.id}} {{personInfo.name}} {{personInfo.data.byteLength}}
+</div>
+<br />
+
+<div>
+  增加人员:
+  <input autocomplete="off" type="text" id="name" #name [(ngModel)]="personName" />
+  <input [(ngModel)]="size" />
+  <button type="submit" (click)="addPerson()">增加</button>
+</div>
+<br />
+
+<div>
+  使用worker增加人员耗时计算:
+  <input autocomplete="off" type="text" id="name" #name [(ngModel)]="personName" />
+  <input [(ngModel)]="size" />
+  <input [(ngModel)]="count" />
+  <button type="submit" (click)="addCountPersonWorker()">增加</button>
+</div>
+<br />
+
+<div>
+  重置数据库
+  <button (click)="resetDatabase()">重置</button>
+</div>
