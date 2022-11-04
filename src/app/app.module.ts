@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { DemoWorkerTransableDataComponent } from './demo-workerTransableData/demo-workerTransableData.component';
 import { DemoWorkerDrawComponent } from './demo-workerDraw/demo-workerDraw.component';
 import { workerDexieModule } from './demo-workerDexie/workerDexie.module';
+import { DemoWorkerPoolComponent } from './demo-workerPool/demo-workerPool.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DemoWorkerTransableDataComponent,
     DemoWorkerDrawComponent,
+    DemoWorkerPoolComponent
   ],
   imports: [
     BrowserModule,

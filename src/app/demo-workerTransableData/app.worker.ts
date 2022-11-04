@@ -19,6 +19,10 @@ addEventListener('message', ({ data }) => {
       dataStorage.instance().a = new A()
       dataStorage.instance().showA()
       postMessage({});
+      break
+    case 'lotsAll':
+      postMessage({});
+      break
   }
 
 

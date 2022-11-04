@@ -15,8 +15,6 @@ async function asyncPool(limitCount: number, params: any[], asyncFnc: any) {
     return Promise.all(pool)
 }
 
-
-
 (async () => {
     await asyncPool(5, [1, 1, 1, 1, 1, 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5], (time: number) => {
         return new Promise((resolve, reject) => {

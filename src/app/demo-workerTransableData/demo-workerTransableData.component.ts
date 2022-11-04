@@ -8,7 +8,9 @@ import { dataStorage } from './util';
 })
 export class DemoWorkerTransableDataComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    this.worker = new Worker(new URL('./app.worker', import.meta.url));
+  }
 
   ngOnInit() {
   }
@@ -32,4 +34,41 @@ export class DemoWorkerTransableDataComponent implements OnInit {
     };
   }
 
+  do3() {
+    console.log('第一个promise');
+    this.worker.postMessage({ type: 'lotsAll' });
+    this.worker.onmessage = ({ }) => {
+      console.log('第一个promise onmessage');
+    };
+    console.log('第二个promise');
+    this.worker.postMessage({ type: 'lotsAll' });
+    this.worker.onmessage = ({ }) => {
+      console.log('第二个promise onmessage');
+    };
+  }
+
+  do4() {
+    Promise.all([
+      new Promise((resolve, reject) => {
+        console.log('第一个promise');
+        this.worker.postMessage({ type: 'lotsAll' });
+        this.worker.onmessage = ({ }) => {
+          console.log('第一个promise onmessage');
+          resolve(true)
+        };
+      }),
+      new Promise((resolve, reject) => {
+        console.log('第二个promise');
+        this.worker.postMessage({ type: 'lotsAll' });
+        this.worker.onmessage = ({ }) => {
+          console.log('第二个promise onmessage');
+          resolve(true)
+        };
+      })
+    ]).then(res => {
+      console.log('promisAll完成', res)
+    })
+  }
+
+  worker: any
 }
