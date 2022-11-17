@@ -1,0 +1,25 @@
+<style>
+    greeting {
+        display: block;
+        font-size: 36px;
+        color: red;
+    }
+</style>
+
+<greeting>Hello World</greeting>
+
+
+<script>
+    function customTag(tagName, fn) {
+        console.log(document.getElementsByTagName(tagName));
+        Array
+            .from(document.getElementsByTagName(tagName))
+            .forEach(fn);
+    }
+
+    function greetingHandler(element) {
+        element.innerHTML = '你好，世界';
+    }
+
+    customTag('greeting', greetingHandler);
+</script>

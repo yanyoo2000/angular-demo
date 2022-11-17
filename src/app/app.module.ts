@@ -6,20 +6,20 @@ import { AppComponent } from './app.component';
 import { DemoWorkerTransableDataComponent } from './demo-workerTransableData/demo-workerTransableData.component';
 import { DemoWorkerDrawComponent } from './demo-workerDraw/demo-workerDraw.component';
 import { workerDexieModule } from './demo-workerDexie/workerDexie.module';
-import { DemoWorkerPoolComponent } from './demo-workerPool/demo-workerPool.component';
+import { DemoFormComponent } from './demo-form/demo-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DemoWorkerTransableDataComponent,
     DemoWorkerDrawComponent,
-    DemoWorkerPoolComponent
+    DemoFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    workerDexieModule
+    workerDexieModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
