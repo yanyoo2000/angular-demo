@@ -8,10 +8,6 @@ import { dataStorage } from './util';
 })
 export class DemoWorkerTransableDataComponent implements OnInit {
 
-  constructor() {
-    this.worker = new Worker(new URL('./app.worker', import.meta.url));
-  }
-
   ngOnInit() {
   }
 
@@ -70,5 +66,12 @@ export class DemoWorkerTransableDataComponent implements OnInit {
     })
   }
 
-  worker: any
+  do5() {
+    this.worker.postMessage({ type: 'tranAndRead' });
+    this.worker.onmessage = (data: any) => {
+      console.log('测试完成', data);
+    };
+  }
+
+  worker = new Worker(new URL('./app.worker', import.meta.url));
 }

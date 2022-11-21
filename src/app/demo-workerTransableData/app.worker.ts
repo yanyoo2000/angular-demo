@@ -4,6 +4,7 @@
 import { A, dataStorage } from "./util";
 
 
+
 addEventListener('message', ({ data }) => {
 
   switch (data.type) {
@@ -23,8 +24,16 @@ addEventListener('message', ({ data }) => {
     case 'lotsAll':
       postMessage({});
       break
+    case 'tranAndRead':
+      let tranAndRead_testData = new ArrayBuffer(100000000)
+      setInterval(() => {
+        console.log(tranAndRead_testData);
+      }, 1000)
+      setTimeout(() => {
+        postMessage(tranAndRead_testData, [tranAndRead_testData]);
+        // tranAndRead_testData = new ArrayBuffer(999)
+      }, 5000);
+      break
   }
-
-
 
 });
