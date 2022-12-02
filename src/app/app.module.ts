@@ -7,19 +7,22 @@ import { DemoWorkerTransableDataComponent } from './demo-workerTransableData/dem
 import { DemoWorkerDrawComponent } from './demo-workerDraw/demo-workerDraw.component';
 import { workerDexieModule } from './demo-workerDexie/workerDexie.module';
 import { DemoFormComponent } from './demo-form/demo-form.component';
-
+import { DemoQRCodeComponent } from './demo-QRCode/demo-QRCode.component';
+import { QRCodeModule } from 'angularx-qrcode';
 @NgModule({
   declarations: [
     AppComponent,
     DemoWorkerTransableDataComponent,
     DemoWorkerDrawComponent,
-    DemoFormComponent
+    DemoFormComponent,
+    DemoQRCodeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     workerDexieModule,
+    QRCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
