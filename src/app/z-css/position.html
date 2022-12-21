@@ -1,0 +1,29 @@
+<!-- 绝对定位和相对定位的top left right bottom 
+都是相对于某个元素的距离
+绝对定位:相对于上一层的relative元素
+相对定位:相对于自身原来的位置 -->
+
+<div class="father">
+    <div class="son">
+
+    </div>
+</div>
+
+<style>
+    div {
+        border: 1px solid black;
+    }
+
+    .father {
+        width: 100px;
+        height: 100px;
+        position: relative;
+    }
+
+    .son {
+        height: 50px;
+        width: 50px;
+        position: absolute;
+        top: 50px;
+    }
+</style>

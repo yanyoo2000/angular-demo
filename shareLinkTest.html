@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function init() {
+        let url = document.location.href
+        let shareIndex = url.indexOf('share/link')
+        let code = ''
+        if (shareIndex !== -1) {
+            code = url.slice(shareIndex + 11)
+        }
+        if (code) {
+            let str = '前端页面获取到的code为:  ' + code
+            console.log(str);
+            let myText = document.createTextNode(str)
+            document.querySelector('#code').appendChild(myText)
+        } else {
+            let str = 'code 不存在'
+            console.log(str);
+            let myText = document.createTextNode(str)
+            document.querySelector('#code').appendChild(myText)
+        }
+    }
+</script>
+
+<body onload="init()">
+    <div id="code">
+
+    </div>
+</body>
+
+</html>
